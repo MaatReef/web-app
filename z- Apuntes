@@ -1,0 +1,15 @@
+Eliminamos todo menos el..
+App.css     ->  Que quede vacio
+App.tsx     ->  Dentro dejamos de invocar el logo y demás  
+                Dejamos solo el return con el div con el className="App"
+index.tsx   ->
+
+Debemos instalar las rutas en el proyecto..
+    npm i react-router-dom
+
+Instalamos el bootstrap para react..
+    npm install react-bootstrap bootstrap 
+
+
+Usamos la extensión Json Crack..
+    Para visualizar los json de manera de árbol.
