@@ -1,6 +1,10 @@
 import react, {useEffect, useState} from "react";
+// Importando librerías de Bootstrap
 import Card from 'react-bootstrap/card';
 import ListGroup from 'react-bootstrap/ListGroup';
+// Llamando a Listado de Pokemon
+import Figure from 'react-bootstrap/Figure';
+// Llamando al Modelo 
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import { getPokemons } from "../controller/getPokemon";
@@ -12,6 +16,7 @@ import { Pokemon } from "../models/pokemon.m";
 const Listado = () => {
     // Obtenemos la data de acuerdo al formato del modelo
     const [pokemons, setPokemons] = useState<Pokemon[]>([]);
+    const [query, setQuery] = useState("");
 
     // Llamamos al controller y los obtenemos a todos
     useEffect(() => {
@@ -22,26 +27,75 @@ const Listado = () => {
         ObtenerTodos();
     });
 
+    const filtrarpokemon = pokemons?.slice(0,151).filter((pokemon) => {
+        return pokemon.name.toLowerCase().match(query.toLowerCase());
+    });
+
     return(
         <>
             <h1>Pokemon</h1>
+            <header>
+                <input 
+                    value={query}
+                    placeholder="Buscar Pokemeon" 
+                    onChange={(event) => setQuery(event.target.value.trim())}
+                    type="text"
+                />
+            </header>
             <div className="content-wrap">
                 <div className="content">
                     <div className="row gap-3">
 
-                        {pokemons?.slice(0,151).map((pokemon) => (
+                        {filtrarpokemon?.slice(0,151).map((pokemon) => (
                             <Card className="mx-auto" style={{ width: '18rem' }}>
                             <Card.Header><b>Tipo:</b> {pokemon.type}</Card.Header>
                             <Card.Img width="80" height="100" variant="top" src={pokemon.imggif} className="d-block mx-auto w-50"/>
                             <Card.Body>
                                 <Card.Title className="text-center">{pokemon.id} - {pokemon.name}</Card.Title>
                                 <ListGroup variant="flush">
-                                    <ListGroup.Item><b>Hp:</b> {pokemon.hp}</ListGroup.Item>
-                                    <ListGroup.Item><b>Ataque:</b> {pokemon.attack}</ListGroup.Item>
-                                    <ListGroup.Item><b>Defensa:</b> {pokemon.defense}</ListGroup.Item>
-                                    <ListGroup.Item><b>E.Ataque:</b> {pokemon.sp_atk}</ListGroup.Item>
-                                    <ListGroup.Item><b>E.Defensa:</b> {pokemon.sp_def}</ListGroup.Item>
-                                    <ListGroup.Item><b>Velocidad:</b> {pokemon.speed}</ListGroup.Item>
+                                    <ListGroup.Item>
+                                        <Figure.Image
+                                        width={16}
+                                        height={16}
+                                        src="https://cdn-icons-png.flaticon.com/128/833/833472.png"
+                                        />
+                                        <b> Hp :</b> {pokemon.hp}
+                                    </ListGroup.Item>
+                                    <ListGroup.Item>
+                                        <Figure.Image
+                                        width={16}
+                                        height={16}
+                                        src="https://cdn-icons-png.flaticon.com/512/3522/3522092.png"
+                                        />
+                                        <b >Ataque :</b> {pokemon.attack}</ListGroup.Item>
+                                    <ListGroup.Item>
+                                        <Figure.Image
+                                        width={16}
+                                        height={16}
+                                        src="https://cdn-icons-png.flaticon.com/512/929/929429.png"
+                                        />
+                                        <b> Defensa :</b> {pokemon.defense}</ListGroup.Item>
+                                    <ListGroup.Item>
+                                        <Figure.Image
+                                        width={16}
+                                        height={16}
+                                        src="https://cdn-icons-png.flaticon.com/512/1671/1671062.png"
+                                        />                                        
+                                        <b> E.Ataque :</b> {pokemon.sp_atk}</ListGroup.Item>
+                                    <ListGroup.Item>
+                                        <Figure.Image
+                                        width={16}
+                                        height={16}
+                                        src="https://cdn-icons-png.flaticon.com/512/1671/1671062.png"
+                                        />
+                                        <b> E.Defensa :</b> {pokemon.sp_def}</ListGroup.Item>
+                                    <ListGroup.Item>
+                                        <Figure.Image
+                                        width={16}
+                                        height={16}
+                                        src="https://cdn-icons-png.flaticon.com/512/8853/8853763.png"
+                                        />
+                                        <b> Velocidad :</b> {pokemon.speed}</ListGroup.Item>
                                 </ListGroup>
                             </Card.Body>
                             </Card>  
