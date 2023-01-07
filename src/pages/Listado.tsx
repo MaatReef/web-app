@@ -33,8 +33,8 @@ const Listado = () => {
 
     return(
         <>
-            <h1>Pokemon</h1>
-            <header>
+            <h1 className="text-center mt-4 mb-4">PokemonDex</h1>
+            <header className="text-center mt-4 mb-4" >
                 <input 
                     value={query}
                     placeholder="Buscar Pokemeon" 
@@ -67,7 +67,7 @@ const Listado = () => {
                                         height={16}
                                         src="https://cdn-icons-png.flaticon.com/512/3522/3522092.png"
                                         />
-                                        <b >Ataque :</b> {pokemon.attack}</ListGroup.Item>
+                                        <b > Ataque :</b> {pokemon.attack}</ListGroup.Item>
                                     <ListGroup.Item>
                                         <Figure.Image
                                         width={16}
