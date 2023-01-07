@@ -13,3 +13,6 @@ Instalamos el bootstrap para react..
 
 Usamos la extensión Json Crack..
     Para visualizar los json de manera de árbol.
+
+
+Con npm build, construimos lo necesario para subir al hosting.

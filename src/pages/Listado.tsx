@@ -1,4 +1,4 @@
-import react, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 // Importando librerías de Bootstrap
 import Card from 'react-bootstrap/card';
 import ListGroup from 'react-bootstrap/ListGroup';
