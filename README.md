@@ -12,4 +12,4 @@
 
 ##  Vista Principal  ✔
 
-<img width="400" src="src/img/img.png">
+<img width="800" src="src/img/img.png">
