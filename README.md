@@ -9,7 +9,14 @@
 - TypeScript
 
 ---
-
-##  Vista Principal  ✔
+##  Vista Principal 🎯
+---
 
 <img width="800" src="src/img/img.png">
+
+---
+## Buscador Implementado 🎨 
+---
+
+<img width="800" src="src/img/img2.png">
+<img width="800" src="src/img/img3.png">
